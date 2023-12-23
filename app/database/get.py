@@ -22,3 +22,15 @@ def fetchallquizzes(cur, ID):
     cur.execute(comm, (ID))
     res = cur.fetchall()
     return res
+
+def fetchall_quizzes(cur):
+    comm = "SELECT ID, TITLE, DATE_CREATED FROM QUIZZES"
+    cur.execute(comm)
+    res = cur.fetchall()
+    return res
+
+def fetchquestionsbyquizid(cur, quiz):
+    comm = "SELECT QUESTION, CHOICES, CORRECT_CHOICE FROM QUESTIONS WHERE QUIZ = %s ORDER BY ID ASC"
+    cur.execute(comm, (quiz))
+    res = cur.fetchall()
+    return res

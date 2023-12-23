@@ -30,4 +30,4 @@ def quizmaster(cur, user):
         
         else:
             print('Invalid Option')
-        c = required_input('Do you want to exit \'Quizcamp\'? [y/n]')
+        c = required_input('Do you want to continue? [y/n]')

@@ -1,5 +1,4 @@
 from datetime import datetime
-import re
 from utils.validators import required_input, option_validator
 from database.get import fetchall, fetchonequiz
 

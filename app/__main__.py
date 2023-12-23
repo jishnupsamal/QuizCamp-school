@@ -5,6 +5,7 @@ from database.create import add_roles, add_user
 from utils.validators import required_input
 from auth import login
 from quizmaster import quizmaster
+from quizzer import quizzer
 
 log.basicConfig(filename="debug.log", level=log.DEBUG)
 
@@ -63,14 +64,13 @@ while c in 'yY':
                     continue
                 print('{}: {}'.format(k, v))
     elif option == 4:
-        if user['role'] == 'Quizmaster':
-            # qm_option = int(required_input('Option'))
-            # if qm_option == 3:
-            #     break
-            # else:
-            quizmaster(cur, user)
-        elif user['role'] == 'Quizzer':
-            print('Quizzer')
+        if user is not None:
+            if user['role'] == 'Quizmaster':
+                quizmaster(cur, user)
+            elif user['role'] == 'Quizzer':
+                quizzer(cur, user)
+        else:
+            print("You're not logged in.")
     elif option == 5:
         print('Logout', '-'*50, sep='\n')
         if user is None:
