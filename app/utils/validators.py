@@ -23,3 +23,10 @@ def password(password: str) -> bool:
         log.error('Password validation failed.')
         raise Exception('Password validation failed.')
     
+def option_validator(options, option):
+    if option in options:
+        log.error(f'{option} already added.')
+        print(f'{option} already added.')
+    else:
+        return option
+    

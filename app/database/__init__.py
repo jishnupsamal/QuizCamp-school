@@ -97,7 +97,6 @@ def create_tables(cur):
                 QUESTION VARCHAR(50) NOT NULL,
                 CHOICES VARCHAR(100) NOT NULL,
                 CORRECT_CHOICE INT(11) NOT NULL,
-                DATE_CREATED DATE NOT NULL,
                 PRIMARY KEY(ID),
                 FOREIGN KEY(QUIZ) REFERENCES QUIZZES(ID)
                 )''')

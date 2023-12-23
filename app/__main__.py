@@ -4,6 +4,7 @@ from database import create_tables, connect, create_db
 from database.create import add_roles, add_user
 from utils.validators import required_input
 from auth import login
+from quizmaster import quizmaster
 
 log.basicConfig(filename="debug.log", level=log.DEBUG)
 
@@ -26,7 +27,8 @@ while c in 'yY':
 1. Register
 2. Login
 3. Profile
-4. Logout
+4. Go to App
+5. Logout
     ''')
     option = int(required_input('Option'))
     
@@ -61,6 +63,15 @@ while c in 'yY':
                     continue
                 print('{}: {}'.format(k, v))
     elif option == 4:
+        if user['role'] == 'Quizmaster':
+            # qm_option = int(required_input('Option'))
+            # if qm_option == 3:
+            #     break
+            # else:
+            quizmaster(cur, user)
+        elif user['role'] == 'Quizzer':
+            print('Quizzer')
+    elif option == 5:
         print('Logout', '-'*50, sep='\n')
         if user is None:
             print("You're not logged in.")

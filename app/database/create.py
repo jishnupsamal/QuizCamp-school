@@ -1,3 +1,4 @@
+import logging as log
 from utils.validators import email, required_input
 from .get import fetchall
 from utils.encoders import hash_password
@@ -7,7 +8,7 @@ def add_roles(cur):
     comm = "INSERT INTO ROLES (TITLE) VALUES (%s)"
     
     if roles == ():
-        print('Adding Roles')
+        log.info('Adding Roles')
         cur.executemany(comm, [('Quizmaster'), ('Quizzer')])
 
 def add_user(cur):
@@ -26,8 +27,4 @@ def add_user(cur):
     print('Creating your {} account'.format(role_options[role]))
     cur.execute(comm, (first_name, last_name, email1, password, role))
     
-def add_quiz(cur, user):
-    title = required_input('First Name')
-    comm = 'INSERT INTO QUIZZES(TITLE, DATE_CREATED, CREATED_BY) VALUES (%s, %s, %s)'
-    if user.role == 'Quizmaster':
-        cur.execute(comm, (title, 'CURDATE()', user.ID))
+# def 
