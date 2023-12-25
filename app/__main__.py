@@ -14,6 +14,7 @@ cur = create_db(con)
 create_tables(cur)
 
 add_roles(cur)
+
 try:
     with open('user.dat', 'rb') as f:
         user = pickle.load(f)

@@ -7,7 +7,6 @@ def add_quiz(cur, user):
     curdate = datetime.now().strftime("%Y-%m-%d")
     comm = 'INSERT INTO QUIZZES(TITLE, DATE_CREATED, CREATED_BY) VALUES (%s, %s, %s)'
     cur.execute(comm, (title, curdate , user["ID"]))
-    
     add_questions(cur, title)
     
 def add_question(cur, title):
@@ -36,7 +35,6 @@ def add_questions(cur, title):
         question = add_question(cur, title)
         questions.append(question)
         c = required_input('Do you want to add more questions? [y/n]')
-    
-    print(questions)
+
     comm = 'INSERT INTO QUESTIONS(QUIZ, QUESTION, CHOICES, CORRECT_CHOICE) VALUES (%s, %s, %s, %s)'
     cur.executemany(comm, questions)

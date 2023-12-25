@@ -3,7 +3,7 @@ from database.get import fetchall_quizzes
 from tabulate import tabulate
 from .attempt import attempt_quiz
 
-def quizzer(cur, user):
+def quizzer(cur):
     c = 'y'
 
     while c in 'yY':

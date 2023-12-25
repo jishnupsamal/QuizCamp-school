@@ -26,5 +26,3 @@ def add_user(cur):
     
     print('Creating your {} account'.format(role_options[role]))
     cur.execute(comm, (first_name, last_name, email1, password, role))
-    
-# def 
