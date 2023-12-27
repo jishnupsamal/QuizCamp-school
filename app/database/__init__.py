@@ -95,7 +95,7 @@ def create_tables(cur):
                 ID INT(10) NOT NULL AUTO_INCREMENT, 
                 QUIZ INT NOT NULL,
                 QUESTION TEXT NOT NULL,
-                CHOICES VARCHAR(100) NOT NULL,
+                CHOICES VARCHAR(500) NOT NULL,
                 CORRECT_CHOICE INT(11) NOT NULL,
                 PRIMARY KEY(ID),
                 FOREIGN KEY(QUIZ) REFERENCES QUIZZES(ID)
