@@ -69,7 +69,7 @@ while c in 'yY':
             if user['role'] == 'Quizmaster':
                 quizmaster(cur, user)
             elif user['role'] == 'Quizzer':
-                quizzer(cur, user)
+                quizzer(cur)
         else:
             print("You're not logged in.")
     elif option == 5:
